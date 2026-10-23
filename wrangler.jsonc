@@ -1,0 +1,17 @@
+{
+  "name": "pc-deal-radar",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-10-20",
+  "workers_dev": true,
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "pc-deal-radar-free",
+      "database_id": "REPLACE_WITH_FREE_D1_DATABASE_ID",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "triggers": {
+    "crons": []
+  }
+}
