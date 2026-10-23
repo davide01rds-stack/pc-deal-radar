@@ -1,0 +1,12 @@
+{
+  "name": "pc-deal-radar-free",
+  "private": true,
+  "version": "0.6.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
