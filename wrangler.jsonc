@@ -7,7 +7,7 @@
     {
       "binding": "DB",
       "database_name": "pc-deal-radar-free",
-      "database_id": "REPLACE_WITH_FREE_D1_DATABASE_ID",
+      "database_id": "9237cadd-5fbf-4e0f-8166-5618cf0d65e2",
       "migrations_dir": "migrations"
     }
   ],
