@@ -16,7 +16,9 @@ export async function registerTelegram(request,env,httpFetch=fetch){
  if(request.method==='GET')return page('Attivazione protetta sul tuo Worker Cloudflare.',200,true);
  if(request.method!=='POST')return new Response('Method not allowed',{status:405,headers:{allow:'GET, POST'}});
  if(u.protocol!=='https:'||!u.hostname.endsWith('.workers.dev'))return page('Apri il dominio workers.dev del tuo Worker.',400);
- if(request.headers.get('origin')!==u.origin)return page('Richiesta non autorizzata.',403);
+ // Some legitimate browser form submissions omit Origin or use a privacy-restricted value.
+ // The high-entropy webhook secret is checked below; block explicit cross-site submissions.
+ if(request.headers.get('sec-fetch-site')==='cross-site')return page('Richiesta da un altro sito non consentita.',403);
  if(!request.headers.get('content-type')?.startsWith('application/x-www-form-urlencoded'))return page('Formato richiesta non consentito.',415);
  if(Number(request.headers.get('content-length')||0)>2048)return page('Richiesta troppo lunga.',413);
  const body=await request.text();
